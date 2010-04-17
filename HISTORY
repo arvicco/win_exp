@@ -1,0 +1,8 @@
+== 0.0.0 / 2010-04-17
+
+* 1 major enhancement
+  * Birthday!
+
+== 0.0.2 / 2010-04-17
+
+* Moved from Jeweler to own Rake tasks
