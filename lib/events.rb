@@ -40,7 +40,7 @@ module Events
           end
         end
       end
-      self # This allows syntax like: my_event += subscriber
+      self # This allows C#-like syntax : my_event -= subscriber
     end
 
     alias_method :+, :subscribe
@@ -49,7 +49,7 @@ module Events
       (subscribers).flatten.compact.each do |subscriber|
         @subscribers.delete(subscriber) if @subscribers[subscriber]
       end
-      self # This allows syntax like: my_event -= subscriber
+      self # This allows C#-like syntax : my_event -= subscriber
     end
 
     alias_method :-, :unsubscribe
@@ -88,19 +88,26 @@ module Events
 
     host.instance_exec do
       def event (name)
+
+        # Defines instance method that has the same name as the Event being declared.
+        # Calling it without arguments returns Event object itself
+        # Calling it with block adds unnamed subscriber for Event
+        # Calling it with arguments fires the Event
+        # Such a messy interface provides some compatibility with C# events behavior
         define_method name do |*args, &block|
           events[name] ||= Event.new(name)
-          if args != []
-            events[name].fire(*args)
-          else
+          if args.empty?
             if block
               events[name].subscribe &block
             else
               events[name]
             end
+          else
+            events[name].fire(*args)
           end
         end
 
+        # Needed to support C#-like syntax : my_event -= subscriber
         define_method "#{name}=" do |event|
           if event.kind_of? Event
             events[name] = event
@@ -120,25 +127,25 @@ end
 module SecondChangeEvent
 
 #  /* ======================= Event Publisher =============================== */
-#  // Our subject -- it is this class that other classes
-#  // will observe. This class publishes one event:
+#  // Our subject -- it is this class that other classes will observe. This class publishes one event:
 #  // SecondChange. The observers subscribe to that event.
   class Clock
     include Events
 
-    # // The delegate named SecondChangeHandler, which will encapsulate
-    # // any method that takes a clock object and a TimeInfoEventArgs
-    # // object as the parameter and returns no value. It's the
-    # // delegate the subscribers must implement.
-    # ???? Seems like the delegates add nothing but "type/signature safety", let's skip them
-    #delegate SecondChangeHandler(clock, timeInformation) #!!!!! Delegate declaration
+#    // The delegate named SecondChangeHandler, which will encapsulate
+#    // any method that takes a clock object and a TimeInfoEventArgs
+#    // object as the parameter and returns no value. It's the
+#    // delegate the subscribers must implement.
+#    ???? Seems like the delegates add nothing but "type/signature safety", let's skip them
+#    delegate SecondChangeHandler(clock, timeInformation) #!!!!! Delegate declaration
 
-    #// The event we publish
-#    event SecondChangeHandler SecondChange #!!!!! Event declaration
-    event :SecondChange #!!!!! Event declaration
+#    // The event we publish
+#    event SecondChangeHandler SecondChange #!!!!! Event declaration in C# uses delegate for signature control
+    event :SecondChange
 
 
 #    #// The method which fires the Event
+#
 #    def OnSecondChange(clock, dt)
 #      #// Check if there are any Subscribers
 #      if (SecondChange() != nil)
@@ -151,33 +158,26 @@ module SecondChangeEvent
     def Run()
       loop do
         sleep 1
-        #// Get the current time
         dt = Time.now
 
-        #// If the second has changed
-        #// notify the subscribers
-        if (dt.sec != @sec)
-          #// If anyone has subscribed, notify them
-          SecondChange(self, dt)
-        end
+        #// If the second has changed, notify the subscribers
+        SecondChange(self, dt) if dt.sec != @sec
 
         #// update the state
         @sec = dt.sec
       end
     end
-
-    p self.instance_methods- Object.instance_methods
   end
 
 #  /* ======================= Event Subscribers =============================== */
 
-#    // An observer. DisplayClock subscribes to the
-#    // clock's events. The job of DisplayClock is
-#    // to display the current time
+  # An observer. DisplayClock subscribes to the clock's events.
+  # The job of DisplayClock is to display the current time
   class DisplayClock
     # // Given a clock, subscribe to its SecondChangeHandler event
     def Subscribe(theClock)
-      theClock.SecondChange += method :TimeHasChanged
+      # Calling SecondChange without parameters returns the Event object itself
+      theClock.SecondChange += method :TimeHasChanged # subscribing with a Method name
     end
 
     #// The method that implements the delegated functionality
@@ -193,9 +193,7 @@ module SecondChangeEvent
       theClock.SecondChange +=  method :WriteLogEntry # subscribing with a Method name
     end
 
-    #// This method should write to a file
-    #// we write to the console to see the effect
-    #// this object keeps no state
+    #// This method should write to a file, but we just write to the console to see the effect
     def WriteLogEntry(theClock, ti)
       puts "Logging to file: #{ti.hour}:#{ti.min}:#{ti.sec}"
       # Code that logs to file goes here...
@@ -212,13 +210,11 @@ module SecondChangeEvent
   # // Create a new clock
   theClock = Clock.new
 
-  #// Create the display and tell it to
-  #// subscribe to the clock just created
+  #// Create the display and tell it to subscribe to the clock just created
   dc = DisplayClock.new
   dc.Subscribe(theClock)
 
-  #// Create a Log object and tell it
-  #// to subscribe to the clock
+  #// Create a Log object and tell it to subscribe to the clock
   lc = LogClock.new
   lc.Subscribe(theClock)
 
