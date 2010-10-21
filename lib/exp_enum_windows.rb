@@ -21,14 +21,13 @@ print_callback = lambda do |handle, message|
 end
 
 @windows = []
-@num = 0
 map_callback = lambda do |handle, message|
-  name = get_window_text_w(handle)
+  name = window_text(handle)
+  name = name.force_encoding('cp1251').encode(Encoding.default_external, :undef => :replace).rstrip if name
   class_name = get_class_name(handle)
   thread, process = get_window_thread_process_id(handle) 
   @windows << { :message => message, :process => process, :thread => thread, :handle => handle,
-                :klass => class_name.rstrip, :name => name}#.encode('cp866', :undef => :replace).rstrip}
-  @num +=1
+                :klass => class_name.rstrip, :name => name}
   true
 end
 
@@ -47,4 +46,4 @@ enum_windows 'TOP', &map_callback
 puts
 puts "Sorted Windows:"
 puts @windows.sort_by{|w| [w[:process], w[:thread], w[:handle]]}.map{|w|w.values.join('  ')}
-puts "Total #{@num} Windows"
+puts "Total #{@windows.size} Windows"

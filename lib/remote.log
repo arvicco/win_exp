@@ -1,0 +1,87 @@
+I 2010-09-06 14:59:31.435 - OK, here comes
+I 2010-09-06 15:01:01.571 - OK, here comes
+I 2010-09-06 15:01:08.983 - OK, here comes
+I 2010-09-06 15:01:16.103 - OK, here comes
+I 2010-09-06 15:01:22.628 - OK, here comes
+I 2010-09-06 15:04:33.934 - OK, here comes
+I 2010-09-06 15:04:41.873 - OK, here comes nothing
+I 2010-09-06 15:07:42.162 - OK, here comes something
+I 2010-09-06 16:53:05.900 - OK, here comes something
+I 2010-09-06 16:56:24.026 - OK, here comes something to 
+I 2010-09-06 16:57:53.672 - OK, here comes something to 
+I 2010-09-06 16:58:02.177 - OK, here comes something to 
+I 2010-09-06 16:58:47.091 - OK, here comes something to 
+I 2010-09-06 16:59:43.529 - OK, here comes something to 
+I 2010-09-06 17:04:18.381 - OK, here comes something to 
+I 2010-09-06 17:08:35.305 - RemoteLogger: Logger created
+I 2010-09-06 17:08:35.305 - RemoteLogger: Initializing service...
+I 2010-09-06 17:08:35.306 - RemoteLogger: Service started
+I 2010-09-06 17:10:01.898 - OK, here comes something to 
+I 2010-09-06 17:30:32.937 - OK, here comes something to 
+
+ice...
+I 2010-09-06 17:50:57.115 - OK, here comes something to 
+I 2010-09-06 17:52:29.281 - OK, here comes something to 
+
+ice...
+I 2010-09-06 18:12:30.377 - RemoteLogger: Logger created
+I 2010-09-06 18:12:30.377 - RemoteLogger: Initializing service...
+I 2010-09-06 18:13:05.104 - RemoteLogger: Logger created
+I 2010-09-06 18:13:05.104 - RemoteLogger: Initializing service...
+I 2010-09-06 18:13:14.333 - RemoteLogger: Logger created
+I 2010-09-06 18:13:14.333 - RemoteLogger: Initializing service...
+I 2010-09-06 18:13:27.196 - RemoteLogger: Logger created
+I 2010-09-06 18:13:27.196 - RemoteLogger: Initializing service...
+I 2010-09-06 18:13:34.180 - RemoteLogger: Logger created
+I 2010-09-06 18:13:34.180 - RemoteLogger: Initializing service...
+I 2010-09-06 18:14:13.168 - RemoteLogger: Logger created
+I 2010-09-06 18:14:13.168 - RemoteLogger: Initializing service...
+I 2010-09-06 18:14:25.103 - RemoteLogger: Logger created
+I 2010-09-06 18:14:25.103 - RemoteLogger: Initializing service...
+I 2010-09-06 18:15:24.957 - RemoteLogger: Logger created
+I 2010-09-06 18:15:24.958 - RemoteLogger: Initializing service...
+I 2010-09-06 18:15:24.958 - RemoteLogger: Service started
+I 2010-09-06 18:16:08.013 - RemoteLogger: Logger created
+I 2010-09-06 18:16:08.013 - RemoteLogger: Initializing service...
+I 2010-09-06 18:16:55.824 - RemoteLogger: Logger created
+I 2010-09-06 18:16:55.824 - RemoteLogger: Initializing service...
+I 2010-09-06 18:16:55.825 - RemoteLogger: Service started
+I 2010-09-06 18:17:09.004 - RemoteLogger: Logger created
+I 2010-09-06 18:17:09.004 - RemoteLogger: Initializing service...
+I 2010-09-06 18:17:09.005 - RemoteLogger: Service started
+I 2010-09-06 18:20:45.376 - RemoteLogger: Logger created
+I 2010-09-06 18:20:45.377 - RemoteLogger: Initializing service with {:verbose=>true, :uri=>"druby://127.0.0.1:8088"}
+I 2010-09-06 18:20:45.377 - RemoteLogger: Service started with {:verbose=>true, :uri=>"druby://127.0.0.1:8088"}
+I 2010-09-06 18:21:32.561 - OK, here comes something to druby://127.0.0.1:8088
+I 2010-09-06 18:21:56.313 - OK, here comes something to druby://localhost:8088
+I 2010-09-06 18:22:29.018 - RemoteLogger: Logger created
+I 2010-09-06 18:22:29.018 - RemoteLogger: Initializing service with {:verbose=>true, :uri=>"druby://10.211.55.1:8088"}
+I 2010-09-06 18:23:04.491 - RemoteLogger: Logger created
+I 2010-09-06 18:23:04.491 - RemoteLogger: Initializing service with {:verbose=>true, :uri=>"druby://127.0.0.1:8088"}
+I 2010-09-06 18:23:04.492 - RemoteLogger: Service started with {:verbose=>true, :uri=>"druby://127.0.0.1:8088"}
+I 2010-09-06 18:53:47.653 - RemoteLogger: Logger created
+I 2010-09-06 18:53:47.657 - RemoteLogger: Initializing service...
+I 2010-09-06 18:53:47.657 - RemoteLogger: Service started
+I 2010-09-06 18:56:51.406 - RemoteLogger: Logger created
+I 2010-09-06 18:56:51.414 - RemoteLogger: Initializing service with {:verbose=>true, :uri=>"druby://127.0.0.1:8088"}
+I 2010-09-06 18:56:51.414 - RemoteLogger: Service started with {:verbose=>true, :uri=>"druby://127.0.0.1:8088"}
+I 2010-09-06 18:57:51.979 - RemoteLogger: Logger created
+I 2010-09-06 18:57:51.982 - RemoteLogger: Initializing service with {:verbose=>true, :uri=>nil}
+I 2010-09-06 18:57:51.983 - RemoteLogger: Service started with {:verbose=>true, :uri=>nil}
+I 2010-09-06 19:08:57.545 - RemoteLogger: Logger created
+I 2010-09-06 19:08:57.549 - RemoteLogger: Initializing service with {:verbose=>true, :uri=>nil}
+I 2010-09-06 19:08:57.549 - RemoteLogger: Service started with {:verbose=>true, :uri=>nil}
+I 2010-09-06 19:09:24.593 - OK, here comes some Ringy messages to 
+I 2010-09-06 19:11:47.831 - OK, here comes some Ringy messages to 
+I 2010-09-07 14:34:17.315 - RemoteLogger: Logger created
+I 2010-09-07 14:34:17.369 - RemoteLogger: Initializing service with {:verbose=>true, :uri=>nil}
+I 2010-09-07 14:34:17.370 - RemoteLogger: Service started with {:verbose=>true, :uri=>nil}
+I 2010-09-07 14:34:41.989 - OK, here comes some Ringy messages to 
+I 2010-09-07 14:36:24.187 - RemoteLogger: Service started
+ice...
+I 2010-09-07 14:45:58.593 - RemoteLogger: Initializing service...
+I 2010-09-07 14:46:09.953 - RemoteLogger: Initializing service...
+I 2010-09-07 14:50:41.015 - OK, here comes something to druby://127.0.0.1:61626
+uri=>nil}
+il}
+I 2010-09-07 14:51:41.062 - RemoteLogger: Initializing service with {:verbose=>true, :uri=>"druby://vb-mac.avp.ru:61626"}
